@@ -1,0 +1,738 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(background3.avif) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+
+.logo {
+    font-size: 2em;
+    color: black;
+    user-select: none;
+}
+
+
+.navbar a {
+    position: relative;
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+
+.navbar .btnpop:hover {
+    background: black;
+    color: white;
+}
+
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.5s ease, height 0.2s ease;
+}
+
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+
+.wrapper.active {
+    height: 520px;
+
+}
+
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transform: none;
+    transform: translateX(400px);
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+
+.wrapper .iconclose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: black;
+    font-size: 2em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+.form-box h2 {
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+
+.inputbox {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+
+
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+
+.inputbox input:focus~label,
+.inputbox input:valid~label {
+    top: -5px;
+}
+
+
+
+.inputbox input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+
+.inputbox .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: white;
+    line-height: 57px;
+}
+
+
+.remember {
+    font-size: 0.9em;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.remember label input {
+    accent-color: black;
+    margin-right: 3px;
+
+}
+
+
+.remember a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.remember a:hover {
+    text-decoration: underline;
+}
+
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+
+.loginregister {
+    font-size: 0.9em;
+    color: black;
+    text-align: center;
+    font-weight: 500px;
+    margin: 25px 0 10px;
+}
+
+
+.loginregister p a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.loginregister p a:hover {
+    text-decoration: underline;
+}
+
+.navbar .btnlink {
+    padding: 8px 16px;
+    background: #e6eae6;
+    color: black;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    margin-left: 40px;
+}
+
+.navbar .btnlink:hover {
+    background: #111;
+    color: #ebefeb;
+}
+
+
+
+
+
+/* Existing styles ... */
+
+.navbar .search-bar {
+    width: 200px;
+    /* Initial width */
+    padding: 8px 35px 8px 8px;
+    /* Adjusted padding for the icon */
+    margin-left: auto;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 1em;
+    color: black;
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    /* Add transitions */
+    background-image: url("search-icon.png");
+    /* Add your search icon image */
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px center;
+    cursor: pointer;
+    /* Add cursor style */
+}
+
+.navbar .search-bar.expanded {
+    width: 450px;
+    /* Expanded width */
+    padding-left: 8px;
+    background-color: white;
+    /* Adjust background color when expanded */
+}
+
+.navbar .search-bar:hover {
+    background-color: #e0e0e0;
+    /* Hover background color */
+}
+
+
+
+
+
+
+
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Add a background color for better visibility */
+    z-index: 99;
+}
+
+/* Logo */
+.logo {
+    font-size: 2em;
+    color: black;
+    user-select: none;
+}
+
+/* Navigation links */
+.navbar a {
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    position: relative;
+}
+
+/* Navigation links hover effect */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Pop-up button */
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+.navbar .btnpop:hover {
+    background: black;
+    color: white;
+}
+
+/* Search bar */
+.navbar .search-bar {
+    width: 200px;
+    padding: 8px 35px 8px 8px;
+    margin-left: auto;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 1em;
+    color: black;
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    background-image: url("search-icon.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px center;
+    cursor: pointer;
+}
+
+.navbar .search-bar.expanded {
+    width: 450px;
+    padding-left: 8px;
+    background-color: white;
+}
+
+.navbar .search-bar:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+
+
+
+
+
+/* Styling for hidden text */
+.hidden-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for hidden text */
+.hidden-text:hover {
+    background-color: #444;
+}
+
+/* Animation for showing the hidden text when closing the popup */
+.wrapper:not(.active-popup) + .hidden-text {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeInUp {
+    from {
+        transform: translate(-50%, -50%) translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* Styling for hidden text */
+.hidden-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    font-size: 25px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.hidden-text a{
+    text-decoration: none;
+    color: #333;
+    
+}
+
+
+
+
+
+
+
+
+/* Hover effect for hidden text */
+.hidden-text:hover {
+    background-color: #e0e0e0;
+}
+
+/* Animation for showing the hidden text when closing the popup */
+.wrapper:not(.active-popup) + .hidden-text {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeInUp {
+    from {
+        transform: translate(-50%, -50%) translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Existing styles ... */
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    align-items: center;
+    padding: 20px 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 99;
+}
+
+/* Navigation links */
+.navbar a {
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px; /* Reduce the margin for spacing between links */
+    position: relative;
+    padding: 5px 10px; /* Add padding to the links */
+}
+
+/* Navigation links hover effect */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Pop-up button */
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 20px; /* Reduce the margin for spacing between links */
+    transition: 0.5s;
+}
+
+.navbar .btnpop:hover {
+    background: black;
+    color: white;
+}
+
+/* Target the Home button with the "home-link" class and remove the box */
+.navbar a.home-link {
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px; /* Reduce the margin for spacing between links */
+    position: relative;
+    padding: 5px 10px; /* Add padding to the links */
+    background: transparent; /* Remove the background color */
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons li {
+    font-size: 20px;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Style social icons on hover */
+.social-icons a:hover {
+    color: #007BFF;
+}
+
+
+/* Add this CSS to your existing styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content-wrapper {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 70px; /* Adjust this value as needed to make space for the footer */
+}
+
+footer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.906);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* The rest of your CSS for the footer remains the same */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

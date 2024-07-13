@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>File Upload & Download</title>
+    <script src="index.js"></script>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+        }
+
+        header {
+            background-color: #111;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .upload-section,
+        .download-section {
+            background-color: #222;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .upload-section:hover,
+        .download-section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #00ff00;
+        }
+
+        .file-upload {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-btn {
+            padding: 0.5rem 1rem;
+            background-color: #00ff00;
+            color: #111;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #111;
+            color: #00ff00;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        #uploadBtn {
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #00ff00;
+            color: #111;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #uploadBtn:hover {
+            background-color: #111;
+            color: #00ff00;
+        }
+
+        #statusMessage {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        li a {
+            color: #00ff00;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1rem;
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        li a:hover {
+            background-color: #00ff00;
+            color: #111;
+            transform: scale(1.05);
+        }
+
+        #clearAllBtn {
+            padding: 0.5rem 1rem;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #clearAllBtn:hover {
+            background-color: #fff;
+            color: #ff0000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #111;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Hover effect for header */
+        header:hover {
+            background-color: #1a1a1a;
+        }
+
+        /* Glow effect for upload and download sections */
+        .upload-section:hover,
+        .download-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hover effect for buttons */
+        .upload-btn:hover,
+        #uploadBtn:hover {
+            background-color: #0f9600;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        li a:hover {
+            background-color: #0f9600;
+            color: #111;
+            transform: scale(1.05);
+        }
+
+        #clearAllBtn:hover {
+            background-color: #d20000;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Text shadow effect for h2 elements */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #00ff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer hover effect */
+        footer:hover {
+            background-color: #0a0a0a;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        /* Styling for remove buttons */
+        .remove-file-btn {
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.25rem 0.5rem;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .remove-file-btn:hover {
+            background-color: #d20000;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        /* Additional styling for select subject */
+        .select-subject {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem; /* Add margin-top to align with other elements */
+            padding-right: 15px;
+        }
+
+        .select-subject label {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+
+        .subject-select {
+            padding: 0.5rem 1rem;
+            background-color: #00ff00;
+            color: #111;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subject-select:hover {
+            background-color: #111;
+            color: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>UPLOAD THE PDF FOR SALE !</h1>
+        <p>The uploaded PDFs will be live for sale in 1-2 Days </p>
+        <p>Payment will be credited to your Account after your 10 Sales</p>
+    </header>
+    <main>
+        <section class="upload-section">
+            <h2>Upload PDF Files</h2>
+            <div class="file-upload">
+                <!-- Select Subject Option -->
+                <div class="select-subject">
+                    <!-- <label for="subjectSelect">Select Subject:</label> -->
+                    <select id="subjectSelect" class="subject-select">
+                        <option value="subject1">BEE</option>
+                        <option value="subject2">Mechanics</option>
+                        <option value="subject3">Mathematics</option>
+                        <!-- Add more subject options as needed -->
+                    </select>
+                </div>
+                <!-- Choose a PDF File Option -->
+                <label for="fileInput" class="upload-btn">Choose a PDF file</label>
+                <input type="file" id="fileInput" accept=".pdf">
+                <button id="uploadBtn">Upload</button>
+            </div>
+            <p class="status-message" id="statusMessage"></p>
+        </section>
+        <section class="download-section">
+            <h2>Your PDF Collection</h2>
+            <button id="clearAllBtn">Clear All</button>
+            <ul id="fileList">
+                <!-- Uploaded files will be listed here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+/* Reset some default browser styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bb5454;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+
+.logo {
+    font-size: 2em;
+    color: black;
+    user-select: none;
+}
+
+
+.navbar a {
+    position: relative;
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+
+.navbar .btnpop:hover {
+    background: black;
+    color: white;
+}
+
+/* About Us section styles */
+.about-us {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.about-us .flashy-text {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #040303; /* Flashy text color */
+    animation: flash 2s infinite alternate; /* Flashy text animation */
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left; /* content alignment */
+}
+
+.center-content img {
+    max-width: 100%;
+}
+
+.about-us .animated-text {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 20px 0; /* Add equal spacing above and below the paragraph */
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Base styles for the navbar */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center-align links horizontally */
+    align-items: center;
+    padding: 20px 0; /* Adjust horizontal padding only, remove the left and right padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 160%; /* Subtract 2cm from the width to create space after the navbar */
+    background-color: transparent; /* Make the background transparent */
+    z-index: 99;
+}
+
+/* Logo */
+.logo {
+    font-size: 2em;
+    color: white; /* Change to white color */
+    user-select: none;
+    transition: color 0.3s; /* Add transition for text color */
+}
+
+/* Navigation links */
+.navbar a {
+    font-size: 1.1em;
+    color: black; /* Change to white color */
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    position: relative;
+    padding: 8px 16px; /* Add padding to the links */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: transparent; /* Initial background is transparent */
+    transition: background-color 0.3s, color 0.3s; /* Add transitions for background and text color */
+}
+
+/* Navigation links hover effect color to be white */
+.navbar a:hover {
+    background-color: rgb(209, 205, 205); /* Background color with transparency on hover */
+}
+
+/* Pop-up button */
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white; /* Change border color to white */
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white; /* Change to white color */
+    font-weight: 500;
+    margin-left: 40px;
+    transition: background-color 0.3s, color 0.3s; /* Add transitions for background and text color */
+}
+
+/* Pop-up button hover effect color to be white */
+.navbar .btnpop:hover {
+    background: #3498db; /* Change background color on hover */
+    color: black; /* Change text color on hover */
+}
+
+/* Search bar */
+.navbar .search-bar {
+    width: 200px;
+    padding: 8px 35px 8px 8px;
+    margin-left: auto;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent; /* Make the background transparent */
+    font-size: 1em;
+    color: black; /* Change to white color */
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    background-image: url("search-icon-white.png"); /* Change to a white search icon */
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px center;
+    cursor: pointer;
+}
+
+/* Search bar background color on hover to be white */
+.navbar .search-bar:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Background color with transparency on hover */
+    color: #333; /* Change text color on hover */
+}
+
+.flashy-text {
+    margin-top: 50px; /* Adjust the margin-top value as needed */
+}
