@@ -1,0 +1,564 @@
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .page-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center; /* Center-align the title */
+    }
+
+    .box-container {
+        display: flex;
+        justify-content: space-between;
+        width: 850px; /* Adjust container width as needed to fit two boxes side by side */
+        margin: 0 auto;
+    }
+
+    .box {
+        width: 400px;
+        height: 400px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 20px;
+        display: inline-flex;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Add filter for darkening */
+        border: 2px solid transparent; /* Add a border */
+        border-radius: 10px; /* Add border radius for a button-like appearance */
+        overflow: hidden; /* Hide overflowing content */
+        flex-direction: column; /* Arrange contents in a column */
+        justify-content: flex-end; /* Align content to the bottom */
+    }
+
+    .box h2 {
+        background-color: yellow; /* Semi-transparent background */
+        color: blue;
+        text-align: center;
+        padding: 10px 20px; /* Add padding for a button-like appearance */
+        margin: 0;
+        z-index: 1;
+        opacity: 1; /* Set opacity to 1 to make text always visible */
+    }
+
+    .box:hover {
+        transform: scale(1.1); /* Scale up on hover */
+        filter: brightness(80%); /* Darken the image on hover */
+       border: 3px solid yellow; /* Change border color on hover */
+    }
+
+    .box:active {
+        transform: scale(0.9);
+    }
+
+    /* Dynamically set background images */
+    .box[data-image="image1.jpg"] {
+        background-image: url('taking.jpg'); /* Replace with your image URL for Box 1 */
+    }
+
+    .box[data-image="image2.jpg"] {
+        background-image: url('sharing.jpg'); /* Replace with your image URL for Box 2 */
+    }
+
+
+    /* Add background image for the page */
+    .page-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('bgimage.jpg'); /* Replace with your background image URL */
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1; /* Place the background behind the content */
+    }
+
+
+    /* Style for the title and container */
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+    }
+
+    .page-title {
+        font-size: 24px;
+        margin-top: 20px; /* Adjust margin-top to create space between the title and boxes */
+        text-align: center;
+        background: rgba(255, 255, 255, 0.7); /* Background color with transparency */
+        color: #333; /* Text color */
+        padding: 10px 20px; /* Add padding */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s, color 0.3s; /* Transition for background and text color */
+        cursor: pointer;
+    }
+
+    .page-title:hover {
+        background-color: #3498db; /* Change background color on hover */
+        color: #fff; /* Change text color on hover */
+    }
+
+
+
+    /* Updated CSS to move "Clickable Boxes" title to the top */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the top */
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Hide overflow for background image */
+}
+
+.page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    /* background: rgba(255, 255, 255, 0.7); */
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.page-title:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.page-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('darkbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Allow content to fill available vertical space */
+    position: relative;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    width: 850px;
+    margin: 0 auto;
+}
+
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center-align links horizontally */
+    align-items: center;
+    padding: 20px 0; /* Adjust horizontal padding only, remove the left and right padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Change to 100% width to cover the entire width of the viewport */
+    background-color: transparent; /* Make the background transparent */
+    z-index: 99;
+    transition: background-color 0.3s; /* Add transition for background color */
+}
+
+/* Logo */
+.logo {
+    font-size: 2em;
+    color: white; /* Change to white color */
+    user-select: none;
+}
+
+/* Navigation links */
+.navbar a {
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    position: relative;
+}
+
+/* Navigation links hover effect */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Pop-up button */
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+.navbar .btnpop:hover {
+    background: white;
+    color: white;
+}
+
+/* Search bar */
+.navbar .search-bar {
+    width: 200px;
+    padding: 8px 35px 8px 8px;
+    margin-left: auto;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 1em;
+    color: white;
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    background-image: url("search-icon.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px center;
+    cursor: pointer;
+}
+
+.navbar .search-bar.expanded {
+    width: 450px;
+    padding-left: 8px;
+    background-color: white;
+}
+
+.navbar .search-bar:hover {
+    background-color: #e0e0e0;
+}
+
+/* Update the background of the navbar to be transparent */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center-align links horizontally */
+    align-items: center;
+    padding: 20px 0; /* Adjust horizontal padding only, remove the left and right padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%; /* Change to 100% width to cover the entire width of the viewport */
+    background-color: transparent; /* Make the background transparent */
+    z-index: 99;
+    transition: background-color 0.3s; /* Add transition for background color */
+}
+
+/* Update the logo color to be white */
+.logo {
+    font-size: 2em;
+    color: white; /* Change to white color */
+    user-select: none;
+}
+
+/* Navigation links color to be white */
+.navbar a {
+    font-size: 1.1em;
+    color: white; /* Change to white color */
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    position: relative;
+}
+
+/* Navigation links hover effect color to be white */
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    background: white; /* Change hover effect color to white */
+}
+
+/* Pop-up button color to be white */
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white; /* Change border color to white */
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white; /* Change to white color */
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+/* Change the search bar icon color to white */
+.navbar .search-bar {
+    width: 200px;
+    padding: 8px 35px 8px 8px;
+    margin-left: auto;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent; /* Make the background transparent */
+    font-size: 1em;
+    color: white; /* Change to white color */
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    background-image: url("search-icon-white.png"); /* Change to a white search icon */
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px center;
+    cursor: pointer;
+}
+
+/* Change the search bar background color on hover to white */
+/* .navbar .search-bar:hover {
+    /* background-color: white; 
+} */
+
+
+    
+/* Base styles for the navbar */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center-align links horizontally */
+    align-items: center;
+    padding: 20px 0; /* Adjust horizontal padding only, remove the left and right padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 160%; /* Change to 100% width to cover the entire width of the viewport */
+    background-color: transparent; /* Make the background transparent */
+    z-index: 99;
+}
+
+/* Logo */
+.logo {
+    font-size: 2em;
+    color: white; /* Change to white color */
+    user-select: none;
+    transition: color 0.3s; /* Add transition for text color */
+}
+
+/* Navigation links */
+.navbar a {
+    font-size: 1.1em;
+    color: white; /* Change to white color */
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    position: relative;
+    padding: 8px 16px; /* Add padding to the links */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: transparent; /* Initial background is transparent */
+    transition: background-color 0.3s, color 0.3s; /* Add transitions for background and text color */
+}
+
+/* Navigation links hover effect color to be white */
+.navbar a:hover {
+    color: black; /* Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.7); /* Background color with transparency on hover */
+}
+
+/* Pop-up button */
+.navbar .btnpop {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white; /* Change border color to white */
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white; /* Change to white color */
+    font-weight: 500;
+    margin-left: 40px;
+    transition: background-color 0.3s, color 0.3s; /* Add transitions for background and text color */
+}
+
+/* Pop-up button hover effect color to be white */
+.navbar .btnpop:hover {
+    background: #3498db; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Search bar */
+.navbar .search-bar {
+    width: 200px;
+    padding: 8px 35px 8px 8px;
+    margin-left: auto;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent; /* Make the background transparent */
+    font-size: 1em;
+    color: white; /* Change to white color */
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    background-image: url("search-icon-white.png"); /* Change to a white search icon */
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px center;
+    cursor: pointer;
+}
+
+/* Search bar background color on hover to be white */
+.navbar .search-bar:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Background color with transparency on hover */
+    color: #333; /* Change text color on hover */
+}
+
+
+/* Your existing CSS styles here */
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Styling for the pop-up modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 70%; /* Adjust the width as needed */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    animation-name: modalopen;
+    animation-duration: 0.3s;
+    position: relative; /* Added for button positioning */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #f44336;
+}
+
+.box-links button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 15px;
+}
+
+.box-links button:hover {
+    background-color: #005f7d;
+    transform: scale(1.05);
+}
+
+/* Keyframes for modal animation */
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

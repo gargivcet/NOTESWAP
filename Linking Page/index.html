@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Boxes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="/Landing Page/index.html">Home</a>
+            <a href="/About Us Page/final.html">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="background-image"></div>
+        <div class="page-content">
+            <div class="box-container">
+                <div class="box" onclick="boxClicked(1)" data-image="image1.jpg">
+                    <h2>Buy Notes</h2>
+                </div>
+                <div class="box" onclick="boxClicked(2)" data-image="image2.jpg">
+                    <h2>Sell Notes</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Box 1 -->
+    <div id="myModal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(1)">&times;</span>
+            <p>Choose a field for Buying Notes:</p>
+            <div class="box-links">
+                <button onclick="redirectToPage(1, 1)">11<sup>th</sup> & 12<sup>th</sup></button>
+                <button onclick="redirectToPage(1, 2)">Engineering</button>
+            </div>
+            <!-- <button onclick="closeModal(1)">Close</button> -->
+        </div>
+    </div>
+
+    <!-- Modal for Box 2 -->
+    <div id="myModal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(2)">&times;</span>
+            <p>Choose a field for Selling Notes:</p>
+            <div class="box-links">
+                <button onclick="redirectToPage(2, 1)">11<sup>th</sup> & 12<sup>th</sup></button>
+                <button onclick="redirectToPage(2, 2)">Engineering</button>
+            </div>
+            <!-- <button onclick="closeModal(2)">Close</button> -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

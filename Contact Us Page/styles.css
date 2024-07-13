@@ -1,0 +1,197 @@
+/* Reset some default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color to the body */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Center the main container both horizontally and vertically */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    animation: fadeIn 1s ease; /* Fade-in animation for the container */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Style the contact container */
+.contact-container {
+    max-width: 800px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    animation: slideIn 1s ease; /* Slide-in animation for the container */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Style the heading */
+.contact-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    animation: fadeInUp 1s ease; /* Fade-in and slide-up animation for the heading */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style the introductory text */
+.contact-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease; /* Fade-in and slide-up animation for the text */
+}
+
+/* Style form labels and input fields */
+.input-container {
+    position: relative;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease; /* Fade-in and slide-up animation for the input container */
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+    animation: fadeIn 1s ease; /* Fade-in animation for inputs */
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+    border-color: #007BFF;
+}
+
+/* Style floating labels */
+.input-container label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: #333;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: top 0.3s ease, font-size 0.3s ease, opacity 0.3s ease;
+}
+
+.input-container input:focus + label,
+.input-container textarea:focus + label,
+.input-container input:not(:placeholder-shown) + label,
+.input-container textarea:not(:placeholder-shown) + label {
+    top: -15px;
+    font-size: 12px;
+    opacity: 1;
+    animation: fadeIn 1s ease; /* Fade-in animation for labels */
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1s ease; /* Fade-in and slide-up animation for the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    animation: bounce 0.3s ease; /* Bounce animation on hover */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Add animated background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #4a90e2, #1e3799, #4a90e2, #1e3799);
+    z-index: -1;
+    animation: backgroundAnimation 10s linear infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1s ease; /* Fade-in and slide-up animation for the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    animation: none; /* Remove the bounce animation on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow on hover */
+}
+
