@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed PDF with Payment Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+    <style>
+        /* Additional CSS for smaller PDF boxes, title on top, and background transition */
+        .pdf-container {
+            text-align: center;
+        }
+
+        .subject-title {
+    background-color: black; /* Background color for subject titles */
+    color: #fff; /* Text color for subject titles */
+    padding: 5px;
+    font-size: 18px;
+    margin: 0;
+    width: 100%; /* Full width for subject titles */
+    box-sizing: border-box;
+    animation: titleAnimation 2s infinite; /* Add animation */
+}
+
+@keyframes titleAnimation {
+    0% {
+        background-color: black;
+    }
+    50% {
+        background-color: #333; /* Color change at 50% */
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+
+        .pdf-set {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #f1f1f1; /* Background color for PDF sets */
+            padding: 10px;
+        }
+
+        .pdf-box {
+            width: 200px; /* Adjust the width as needed */
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            height: 250px;
+            background-color: #fff; /* Background color for PDF boxes */
+            transition: background-color 0.3s ease; /* Background transition */
+        }
+
+        .pdf-box:hover {
+            background-color: #e0e0e0; /* Background color on hover */
+        }
+
+        .pdf-title {
+            font-size: 14px;
+            margin-top: 10px; /* Add space between title and image */
+        }
+
+        .pdf-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PDFs grouped under Subject 1 -->
+    <div class="pdf-container">
+        <h2 class="subject-title">Physics</h2> 
+        <div class="pdf-set">
+            <div class="pdf-box" onclick="openPaymentPopup('subject1_physics.pdf', 'Physics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 1</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject1_physics.pdf', 'Physics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 2</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject1_physics.pdf', 'Physics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 3</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject1_chemistry.pdf', 'Chemistry')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 4</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject1_mathematics.pdf', 'Mathematics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 5</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject1_biology.pdf', 'Biology')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 6</p>
+            </div>
+            <!-- Add more PDFs for Subject 1 as needed -->
+        </div>
+    </div>
+
+    <!-- PDFs grouped under Subject 2 -->
+    <div class="pdf-container">
+        <h2 class="subject-title">Chemistry</h2>
+        <div class="pdf-set">
+            <div class="pdf-box" onclick="openPaymentPopup('subject2_physics.pdf', 'Physics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 1</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject2_physics.pdf', 'Physics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 2</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject2_physics.pdf', 'Physics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 3</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject2_chemistry.pdf', 'Chemistry')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 4</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject2_mathematics.pdf', 'Mathematics')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 5</p>
+            </div>
+            <div class="pdf-box" onclick="openPaymentPopup('subject2_biology.pdf', 'Biology')">
+                <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                <p class="pdf-title">Chapter 6</p>
+            </div>
+            <!-- Add more PDFs for Subject 2 as needed -->
+        </div>
+    </div>
+
+
+        <!-- PDFs grouped under Subject 2 -->
+        <div class="pdf-container">
+            <h2 class="subject-title">Mathematics</h2>
+            <div class="pdf-set">
+                <div class="pdf-box" onclick="openPaymentPopup('subject2_physics.pdf', 'Physics')">
+                    <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                    <p class="pdf-title">Chapter 1</p>
+                </div>
+                <div class="pdf-box" onclick="openPaymentPopup('subject2_physics.pdf', 'Physics')">
+                    <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                    <p class="pdf-title">Chapter 2</p>
+                </div>
+                <div class="pdf-box" onclick="openPaymentPopup('subject2_physics.pdf', 'Physics')">
+                    <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                    <p class="pdf-title">Chapter 3</p>
+                </div>
+                <div class="pdf-box" onclick="openPaymentPopup('subject2_chemistry.pdf', 'Chemistry')">
+                    <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                    <p class="pdf-title">Chapter 4</p>
+                </div>
+                <div class="pdf-box" onclick="openPaymentPopup('subject2_mathematics.pdf', 'Mathematics')">
+                    <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                    <p class="pdf-title">Chapter 5</p>
+                </div>
+                <div class="pdf-box" onclick="openPaymentPopup('subject2_biology.pdf', 'Biology')">
+                    <img class="pdf-image" src="pdf.jpg" alt="PDF Image">
+                    <p class="pdf-title">Chapter 6</p>
+                </div>
+                <!-- Add more PDFs for Subject 2 as needed -->
+            </div>
+        </div>
+    <!-- Payment Popup -->
+    <div id="paymentPopup" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentPopup()">&times;</span>
+            <h2>Sample Preview</h2>
+            <div id="samplePagesContainer">
+                <!-- Inside your payment popup content -->
+                <div id="samplePagesContainer">
+                    <!-- Create multiple images with links and arrange them in a line -->
+                    <a href="sample.gif" target="_blank" class="sample-image">
+                        <img src="sample.gif" alt="Loading">
+                    </a>
+                    <a href="sample.gif" target="_blank" class="sample-image">
+                        <img src="sample.gif" alt="Loading">
+                    </a>
+                    <a href="sample.gif" target="_blank" class="sample-image">
+                        <img src="sample.gif" alt="Loading">
+                    </a>
+                </div>
+                <button class="payment-button" onclick="openPDF()">Pay to Access Full PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the payment popup
+        function openPaymentPopup(pdfUrl, pdfTitle) {
+            // Display the payment popup
+            var paymentPopup = document.getElementById("paymentPopup");
+            paymentPopup.style.display = "block";
+
+            // Store PDF details in data attributes for later use
+            paymentPopup.setAttribute("data-pdf-url", pdfUrl);
+            paymentPopup.setAttribute("data-pdf-title", pdfTitle);
+        }
+
+        // Function to close the payment popup
+        function closePaymentPopup() {
+            var paymentPopup = document.getElementById("paymentPopup");
+            paymentPopup.style.display = "none";
+        }
+
+        // Function to open the PDF in a new tab after payment
+        function openPDF() {
+            var paymentPopup = document.getElementById("paymentPopup");
+            var pdfUrl = paymentPopup.getAttribute("data-pdf-url");
+            var pdfTitle = paymentPopup.getAttribute("data-pdf-title");
+            closePaymentPopup(); // Close the payment popup
+
+            // Open the PDF in a new tab with the specified title
+            var pdfWindow = window.open(pdfUrl, '_blank');
+            if (pdfWindow) {
+                pdfWindow.document.title = pdfTitle;
+            }
+        }
+    </script>
+</body>
+</html>
